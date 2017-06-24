@@ -1,0 +1,74 @@
+/*colors*/
+
+/*#00B0E9 */
+  /*#0047BF*/
+
+
+
+body {
+
+}
+
+.navbar {
+
+}
+
+/*.box {*/
+    /*border: solid red;*/
+/*}*/
+
+img{
+    height: 1600px;
+    width: 500px;
+
+}
+
+.img-responsive{
+    padding-top: 30%;
+    padding-left: 20%;
+
+}
+
+
+hr {
+    border: none;
+    height: 1px;
+    color: #0047BF;
+    background-color: #00B0E9;
+
+}
+
+.home-headline {
+    font-family: 'Times New Roman', 'Times', 'Serif';
+    font-size: 24px;
+    color: #fff;
+    margin: auto;
+    text-align: center;
+    margin-top: -13px;
+}
+
+.home-headline span{
+    background-color: #0047BF;
+    padding: 5px 22px;
+}
+
+img #carbook{
+    height: 50%;
+    width: 50%;
+ }
+
+.section-headline {
+    font-family: 'Times New Roman', 'Times', 'Serif';
+    font-size: 24px;
+    color: #fff;
+    margin: auto;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.section-headline span{
+    background-color: #0047BF;
+    padding: 5px 22px;
+}
+
+

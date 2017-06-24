@@ -1,0 +1,98 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:fragment="common-header">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <link rel="icon" href="/image/AgileIntelligencelogoAIonly.png"/>
+    <title>Carlos' Agile Bookstore</title>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet"/>
+
+    <!--Change the green leaf-->
+
+
+</head>
+
+<body>
+
+<div th:fragment="navbar">
+<div class="page-top" style="width:100%; height: 20px; background-color: #00B0E9;"> </div>
+
+<!-- Static navbar -->
+
+
+<nav class="navbar navbar-default navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">CARLOS' AGILE BOOKSTORE</a>
+        </div>
+        <div id="navbar">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle"
+                       data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">BOOKS <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Browse the bookshelf</a></li>
+                        <li><a href="#">Store hours &#38; Directions</a></li>
+                        <li><a href="#">FAQ</a></li>
+
+                    </ul></li>
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" name="keyword" class="form-control" placeholder="Book title" />
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">SHOPPING CART</a></li>
+                <li><a sec:authorize="isAnonymous()" th:href="@{/login}">MY ACCOUNT</a></li>
+                <li><a sec:authorize="isAuthenticated()" th:href="@{/myProfile}">MY ACCOUNT</a></li>
+                <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
+
+</div>
+
+
+<div th:fragment="body-bottom-scripts">
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</div>
+
+
+
+
+</body>
+</html>
