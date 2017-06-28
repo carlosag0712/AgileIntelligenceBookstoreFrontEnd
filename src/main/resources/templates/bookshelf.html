@@ -35,13 +35,13 @@
                         <div th:if="${book != null}">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <a th:href="@{/bookDetail?id=}+${book.id}"> <img class="img-responsive shelf-book" th:src="#{adminPath}+@{/image/book/}+${book.id}+'.png'"/>
+                                    <a th:href="@{/bookDetail?id=}+${book.id}"> <img th:src="${book.imageUrl}" class="img-responsive center-block" />
                                     </a>
                                 </div>
 
                                 <br/>
-                                <br/>
-                                <br/>
+                                <br/><br/>
+
 
                                 <div class="col-xs-9">
                                     <a th:href="@{/bookDetail?id=}+${book.id}"><strong>Title: </strong><span th:text="${book.title}"></span></a>
