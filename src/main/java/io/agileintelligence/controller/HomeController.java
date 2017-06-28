@@ -1,9 +1,11 @@
 package io.agileintelligence.controller;
 
+import io.agileintelligence.domain.Book;
 import io.agileintelligence.domain.User;
 import io.agileintelligence.domain.security.PasswordResetToken;
 import io.agileintelligence.domain.security.Role;
 import io.agileintelligence.domain.security.UserRole;
+import io.agileintelligence.service.BookService;
 import io.agileintelligence.service.Impl.UserSecurityService;
 import io.agileintelligence.service.UserService;
 import io.agileintelligence.utility.MailConstructor;
@@ -23,10 +25,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
-import java.util.UUID;
+import javax.websocket.server.PathParam;
+import java.security.Principal;
+import java.util.*;
 
 /**
  * Created by carlosarosemena on 2017-06-08.
@@ -37,6 +38,9 @@ public class HomeController {
 
     @Autowired
     private JavaMailSender mailSender;
+
+    @Autowired
+    private BookService bookService;
 
 
     @Autowired
@@ -59,6 +63,36 @@ public class HomeController {
     {
         model.addAttribute("classActiveLogin", true);
         return "myAccount";
+    }
+
+    @RequestMapping("/bookshelf")
+    public String bookshelf(Model model){
+        List<Book> bookList = bookService.findAll();
+        model.addAttribute("bookList", bookList);
+
+        return "bookshelf";
+    }
+
+    @RequestMapping("/bookDetail")
+    public String bookDetail(
+            @PathParam("id") Long id, Model model, Principal principal
+    ) {
+        if(principal != null){
+            String username = principal.getName();
+            User user = userService.findByUsername(username);
+            model.addAttribute("user", user);
+        }
+
+        Book book = bookService.findOne(id);
+
+        model.addAttribute("book", book);
+
+        List<Integer> qtyList = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+
+        model.addAttribute("qtyList", qtyList);
+        model.addAttribute("qty", 1);
+
+        return "bookDetail";
     }
 
 
